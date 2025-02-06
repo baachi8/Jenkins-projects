@@ -1,12 +1,15 @@
 pipeline {
-  agent {
-    docker { image 'node:16-alpine' }
-  }
-  stages {
-    stage('Test') {
-      steps {
-        sh 'node --version'
-      }
+    agent {
+        docker {
+            image 'node:16-alpine'
+        }
     }
-  }
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Running inside Node.js 16 Alpine container'
+                sh 'node -v'  // Example command to check Node.js version
+            }
+        }
+    }
 }
